@@ -15,6 +15,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoT
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -87,6 +88,7 @@ public class SocialApplication extends WebSecurityConfigurerAdapter{
   public AuthorizationCodeResourceDetails facebook() {
     return new AuthorizationCodeResourceDetails();
   }
+  @Primary
   @Bean
   @ConfigurationProperties("facebook.resource")
   public ResourceServerProperties facebookResource() {
